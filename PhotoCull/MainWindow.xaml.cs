@@ -218,25 +218,29 @@ namespace PhotoCull
 
         private Point ZoomImage(Image imageView, Point mousePointer)
         {
-            imageView.Stretch = Stretch.None;
-            double height = LeftButton.ActualHeight;
-            double width = LeftButton.ActualWidth;
-
             var imageSource = imageView.Source;
             if (imageSource is CroppedBitmap)
             {
                 imageSource = (imageSource as CroppedBitmap).Source;
             }
             var bmp = imageSource as BitmapImage;
+            imageView.Stretch = Stretch.None;
+            double height = LeftButton.ActualHeight;
+            double width = LeftButton.ActualWidth;
             Point center = new Point(
                 mousePointer.X * bmp.PixelWidth / width,
                 mousePointer.Y * bmp.PixelHeight / height);
             Point origin = new Point(
                 Math.Max(center.X - width / 2, 0),
                 Math.Max(center.Y - height / 2, 0));
+            height *= bmp.PixelHeight / bmp.Height;
+            width *= bmp.PixelWidth / bmp.Width;
             Point extent = new Point(
                 Math.Min(origin.X + width, bmp.PixelWidth),
                 Math.Min(origin.Y + height, bmp.PixelHeight));
+            origin = new Point(
+                Math.Max(extent.X - width, 0),
+                Math.Max(extent.Y - height, 0));
             var rect = new Int32Rect(
                     (int)Math.Floor(origin.X),
                     (int)Math.Floor(origin.Y),
