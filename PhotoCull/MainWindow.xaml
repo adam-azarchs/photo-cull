@@ -32,7 +32,7 @@
                         <Grid.ContextMenu>
                             <ContextMenu>
                                 <CheckBox Content="Rejected" IsChecked="{Binding IsRejected}"
-                                          Checked="RejectednessChanged" Unchecked="RejectednessChanged" />
+                                          Click="RejectednessChanged" />
                             </ContextMenu>
                         </Grid.ContextMenu>
                     </Grid>

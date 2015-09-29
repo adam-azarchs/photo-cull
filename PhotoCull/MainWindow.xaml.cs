@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -275,6 +276,11 @@ namespace PhotoCull
                 {
                     Unzoom(LeftImage);
                     Unzoom(RightImage);
+                }
+                else
+                {
+                    ZoomImage(LeftImage, e.GetPosition(sender as Button));
+                    ZoomImage(RightImage, e.GetPosition(sender as Button));
                 }
             }
         }
