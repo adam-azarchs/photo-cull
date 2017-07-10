@@ -225,7 +225,6 @@ namespace PhotoCull
                 imageSource = (imageSource as CroppedBitmap).Source;
             }
             var bmp = imageSource as BitmapImage;
-            imageView.Stretch = Stretch.None;
             double height = LeftButton.ActualHeight;
             double width = LeftButton.ActualWidth;
             Point center = new Point(
@@ -234,8 +233,6 @@ namespace PhotoCull
             Point origin = new Point(
                 Math.Max(center.X - width / 2, 0),
                 Math.Max(center.Y - height / 2, 0));
-            height *= bmp.PixelHeight / bmp.Height;
-            width *= bmp.PixelWidth / bmp.Width;
             Point extent = new Point(
                 Math.Min(origin.X + width, bmp.PixelWidth),
                 Math.Min(origin.Y + height, bmp.PixelHeight));
@@ -260,7 +257,6 @@ namespace PhotoCull
 
         private static void Unzoom(Image imageView)
         {
-            imageView.Stretch = Stretch.Uniform;
             if (imageView.Source is CroppedBitmap)
             {
                 imageView.Source = (imageView.Source as CroppedBitmap).Source;
