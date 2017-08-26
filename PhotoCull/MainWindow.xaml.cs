@@ -52,9 +52,19 @@ namespace PhotoCull
 
         private void ChooseImages(object sender, RoutedEventArgs e)
         {
+            const string jpegExtensions = "*.jpg;*.jpeg";
+            const string rawExtensions = "*.dng;*.DNG;" +
+                "*.crw;*.CR2;*.MRW;*.3fr;*.ari;*.arw;*.srf;*.sr2;*.bay;*.cri;" +
+                "*.cap;*.iiq;*.eip;*.erf;*.fff;*.mef;*.mdc;*.mos;*.nef;*.nrw;" +
+                "*.dcs;*.dcr;*.drf;*.k25;*.kdc;*.orf;*.pef;*.ptx;*.pxn;*.R3D;" +
+                "*.raf;*.raw;*.rw2;*.rwl;*.rwz;*.srw;*.x3f";
+            const string tiffExtensions = "*.tif;*.tiff";
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.CheckFileExists = true;
-            dialog.Filter = "Jpeg images|*.jpg;*.jpeg";
+            dialog.Filter = "All images|" +
+                jpegExtensions + ";" + rawExtensions + ";" + tiffExtensions +
+                "|Jpeg images|" + jpegExtensions + "|RAW images|" + rawExtensions +
+                "|TIFF images|" + tiffExtensions;
             dialog.Multiselect = true;
             dialog.Title = "Choose files to compare...";
             dialog.ShowReadOnly = false;
