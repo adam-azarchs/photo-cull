@@ -1,4 +1,5 @@
 # PhotoCull
+[![Build status](https://ci.appveyor.com/api/projects/status/ltgwpkvexx5e04n6/branch/master?svg=true)](https://ci.appveyor.com/project/adam-azarchs/photo-cull/branch/master)
 
 PhotoCull is a tool for choosing the best images from a set of similar ones.
 It is intended for people who, like me, tend to take potentially dozens of
