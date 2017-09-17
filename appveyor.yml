@@ -1,0 +1,15 @@
+version: 0.1.{build}
+build:
+  verbosity: minimal
+platform:
+- Any CPU
+configuration:
+- Release
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: oy9vmWoKGVoCQo1SmAaMu/j8ZEBCMCr7jbkPQ0CdJVwaY0MNwYqi/yqHlH6DIoFG
+  artifact: PhotoCull\bin\.*\PhotoCull.exe
+  force_update: true
+  on:
+    appveyor_repo_tag: true
