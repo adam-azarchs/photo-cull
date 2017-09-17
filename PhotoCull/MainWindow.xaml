@@ -13,7 +13,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Column="0" Name="FileListBox" SelectionChanged="ListBoxSelection">
+        <ListBox Grid.Column="0" Name="FileListBox" SelectionChanged="listBoxSelection">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type c:Photo}">
                     <Grid>
@@ -32,36 +32,36 @@
                         <Grid.ContextMenu>
                             <ContextMenu>
                                 <CheckBox Content="Rejected" IsChecked="{Binding IsRejected}"
-                                          Click="RejectednessChanged" />
+                                          Click="rejectednessChanged" />
                             </ContextMenu>
                         </Grid.ContextMenu>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Column="1" Click="LeftImageClick" IsEnabled="False" Name="LeftButton" MouseDown="ToggleZooming" >
+        <Button Grid.Column="1" Click="leftImageClick" IsEnabled="False" Name="LeftButton" MouseDown="toggleZooming" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <TextBlock Name="LeftImageNameText" />
-                <Image Grid.Row="1" Stretch="Uniform" Name="LeftImage" MouseMove="MoveZoom" MouseLeave="MouseLeaving" />
+                <Image Grid.Row="1" Stretch="Uniform" Name="LeftImage" MouseMove="moveZoom" MouseLeave="mouseLeaving" />
             </Grid>
         </Button>
-        <Button Grid.Column="2" Click="RightImageClick" IsEnabled="False" Name="RightButton" MouseDown="ToggleZooming" >
+        <Button Grid.Column="2" Click="rightImageClick" IsEnabled="False" Name="RightButton" MouseDown="toggleZooming" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <TextBlock Name="RightImageNameText" />
-                <Image Grid.Row="1" Stretch="Uniform" Name="RightImage" MouseMove="MoveZoom" MouseLeave="MouseLeaving" />
+                <Image Grid.Row="1" Stretch="Uniform" Name="RightImage" MouseMove="moveZoom" MouseLeave="mouseLeaving" />
             </Grid>
         </Button>
-        <Button Grid.Column="0" Grid.Row="1" Padding="5" Margin="1" Content="Choose images..." Click="ChooseImages" />
-        <Button Grid.Column="1" Grid.Row="1" Padding="5" Content="I can't choose!" IsEnabled="False"
-                Name="CantChooseButton" Click="CantChooseClick" BorderThickness="4" Margin="1" />
-        <Button Grid.Column="2" Grid.Row="1" Padding="2" Margin="4" Content="Delete rejects..." Click="DeleteRejects" />
+        <Button Grid.Column="0" Grid.Row="1" Padding="5" Margin="1" Content="Choose images..." Click="chooseImages" />
+        <Button Grid.Column="1" Grid.Row="1" Padding="5" Content="Keep both, for now" IsEnabled="False"
+                x:Name="KeepBothButton" Click="keepBothClick" BorderThickness="4" Margin="1" />
+        <Button Grid.Column="2" Grid.Row="1" Padding="2" Margin="4" Content="Delete rejects..." Click="deleteRejects" />
     </Grid>
 </Window>
